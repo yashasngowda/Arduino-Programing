@@ -1,0 +1,43 @@
+int val1;
+int val2;
+int h = 120;
+int l = 0;
+int m = 80;
+void setup() {
+pinMode(A0, INPUT);
+pinMode(A1, INPUT);
+pinMode(3, OUTPUT);  
+Serial.begin(9600);
+pinMode(10, OUTPUT);
+pinMode(11, OUTPUT);
+pinMode(6, OUTPUT);
+pinMode(5, OUTPUT);
+analogWrite(3 , HIGH);
+}
+
+void loop() {
+
+val1 = analogRead(A0);  
+Serial.print(val1);
+Serial.print("    ");
+
+val2 = analogRead(A1);  
+Serial.println(val2);
+
+if(val2 > 100)
+  {
+   analogWrite(10,h);
+    analogWrite(5,l);
+    analogWrite(6,m);
+     analogWrite(11, l);
+     delay(10);
+  }
+  
+if(val1 > 100)
+  {
+   analogWrite(5,h);
+     analogWrite(10,l);
+    analogWrite(6,l);
+     analogWrite(11,m);
+  }
+}
